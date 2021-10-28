@@ -1,6 +1,6 @@
 # TapTempo Fortran
 
-A command line `taptempo` written in modern Fortran and under GNU GPLv3 license. Listen to a song and hit enter key with style and you'll get the corresponding number of beats per minute (BPM). This tool is very useful to quickly find the tempo of a song. 
+A command line `taptempo` written in modern Fortran and under GNU GPLv3 license. Listen to a song and hit enter key with style and you'll get the corresponding number of beats per minute (BPM). This tool is very useful to quickly find the tempo of a song. You can also use it to measure your heart rate: (gently) put one hand around your throat and tap the enter key at each beat.
 
 The original TapTempo was written in C++, but lots of porting in other languages have been developed via the [LinuxFr website](https://linuxfr.org/wiki/taptempo). There is even a [TapTempo Federation](https://github.com/Taptempo-Federation).
 

@@ -1,0 +1,14 @@
+name = "taptempo"
+version = "0.9.0"
+license = "license"
+author = "Vincent Magnin and the Fortran-lang community"
+maintainer = "Vincent Magnin"
+copyright = "Copyright 2021"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = true
+
+[install]
+library = false

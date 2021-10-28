@@ -71,6 +71,7 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md
 
 * Introduced by Fortran 90:
   * [SYSTEM_CLOCK()](https://gcc.gnu.org/onlinedocs/gfortran/SYSTEM_005fCLOCK.html)
+    * My first idea was to use `cpu_time()` but I soon realised that the process was idle while the `read(*, '(a1)') key` was waiting for an input! That’s why I finally used `system_clock()`.
 
 * Introduced by Fortran 2003:
   * [COMMAND_ARGUMENT_COUNT()](https://gcc.gnu.org/onlinedocs/gfortran/COMMAND_005fARGUMENT_005fCOUNT.html)

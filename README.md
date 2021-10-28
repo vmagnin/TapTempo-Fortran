@@ -38,7 +38,8 @@ $ fpm run -- -r 3 -s 8 -p 2
 Or you can also use the `build.sh` script if you don't have fpm installed, or just simply type:
 
 ```
-$ gfortran src/taptempo.f90 app/main.f90
+$ gfortran -o taptempo src/taptempo.f90 app/main.f90
+* ./taptempo
 ```
 
 ## Options

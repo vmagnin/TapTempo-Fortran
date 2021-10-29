@@ -72,6 +72,7 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md
 * Introduced by Fortran 90:
   * [SYSTEM_CLOCK()](https://gcc.gnu.org/onlinedocs/gfortran/SYSTEM_005fCLOCK.html)
     * My first idea was to use `cpu_time()` but I soon realised that the process was idle while the `read(*, '(a1)') key` was waiting for an input! That’s why I finally used `system_clock()`.
+    * A 64 bits integer can go up to 2**63-1 = +9223372036854775807. Even if the clock resolution is nanosecond, we could count 9223372036 seconds ~ 106751 days ~ 292 years.
 
 * Introduced by Fortran 2003:
   * [COMMAND_ARGUMENT_COUNT()](https://gcc.gnu.org/onlinedocs/gfortran/COMMAND_005fARGUMENT_005fCOUNT.html)

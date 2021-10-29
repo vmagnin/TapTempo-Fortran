@@ -92,7 +92,7 @@ contains
         ! Format used for printing the tempo:
         write(fmt, '(A, I1, A)') '("Tempo: ", f8.', p, ', " BPM")'
         ! Stack initialization:
-        t = 0.0_wp
+        t = 0
 
         print '(A)', "Hit Enter key for each beat (q to quit)."
 
@@ -115,11 +115,11 @@ contains
             else
                 ! Verify that the user is actively tapping:
                 if (t(1) - t(2) <= r) then
-                    print fmt, 60.0_wp / ((t(1) - t(min(i, s))) / (min(i, s)-1))
+                    print fmt, 60 / ((t(1) - t(min(i, s))) / (min(i, s)-1))
                 else
                     print '(A)', "Time reset"
                     i = 1
-                    t(2:s) = 0.0_wp
+                    t(2:s) = 0
                 end if
             end if
         end do

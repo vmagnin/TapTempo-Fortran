@@ -87,6 +87,7 @@ contains
         real(wp) :: rate              ! Number of clock ticks per second
         integer :: i
         real(wp), dimension(s) :: t   ! Time FIFO stack
+        real(wp) :: oldest
         character(len=25) :: fmt
 
         ! Format used for printing the tempo:
@@ -115,7 +116,10 @@ contains
             else
                 ! Verify that the user is actively tapping:
                 if (t(1) - t(2) <= r) then
-                    print fmt, 60 / ((t(1) - t(min(i, s))) / (min(i, s)-1))
+                    ! Oldest time in the stack:
+                    oldest = min(i, s)
+                    ! Computes and prints the beats per minute:
+                    print fmt, 60 / ((t(1) - t(oldest)) / (oldest - 1))
                 else
                     print '(A)', "Time reset"
                     i = 1

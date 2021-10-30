@@ -100,7 +100,8 @@ contains
         ! Infinite loop:
         i = 0
         do
-            read(*, '(a1)') key
+            ! Reading the standard input:
+            read '(a1)', key
 
             if (key == 'q') exit
 

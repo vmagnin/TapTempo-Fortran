@@ -64,7 +64,7 @@ contains
                     i = i + 1
                     call get_command_argument(i, value=args)
                     read(args, *) p
-                    p = min(p, 5)
+                    p = max(0, min(p, 5))   ! 0 <= p <= 5
                 case("-r", "--reset-time")
                     i = i + 1
                     call get_command_argument(i, value=args)

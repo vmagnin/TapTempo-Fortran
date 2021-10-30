@@ -87,7 +87,7 @@ contains
         real(wp) :: rate              ! Number of clock ticks per second
         integer :: i
         real(wp), dimension(s) :: t   ! Time FIFO stack
-        real(wp) :: oldest
+        integer :: oldest
         character(len=25) :: fmt
 
         ! Format used for printing the tempo:

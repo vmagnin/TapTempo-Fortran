@@ -55,28 +55,29 @@ contains
             i = i + 1
             call get_command_argument(i, value=args)
 
-            if ((trim(args) == "-h").or.(trim(args) == "--help")) then
-                call print_version()
-                call print_options()
-                stop
-            else if ((trim(args) == "-p").or.(trim(args) == "--precision")) then
-                i = i + 1
-                call get_command_argument(i, value=args)
-                read(args, *) p
-                p = min(p, 5)
-            else if ((trim(args) == "-r").or.(trim(args) == "--reset-time")) then
-                i = i + 1
-                call get_command_argument(i, value=args)
-                read(args, *) r
-            else if ((trim(args) == "-s").or.(trim(args) == "--sample-size")) then
-                i = i + 1
-                call get_command_argument(i, value=args)
-                read(args, *) s
-                s = max(2, s)
-            else if ((trim(args) == "-v").or.(trim(args) == "--version")) then
-                call print_version()
-                stop
-            end if
+            select case(trim(args))
+                case("-h", "--help")
+                    call print_version()
+                    call print_options()
+                    stop
+                case("-p", "--precision")
+                    i = i + 1
+                    call get_command_argument(i, value=args)
+                    read(args, *) p
+                    p = min(p, 5)
+                case("-r", "--reset-time")
+                    i = i + 1
+                    call get_command_argument(i, value=args)
+                    read(args, *) r
+                case("-s", "--sample-size")
+                    i = i + 1
+                    call get_command_argument(i, value=args)
+                    read(args, *) s
+                    s = max(2, s)
+                case("-v", "--version")
+                    call print_version()
+                    stop
+            end select
         end do
     end subroutine manage_command_line
 

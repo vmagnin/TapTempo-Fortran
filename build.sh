@@ -4,7 +4,7 @@
 set -eu
 
 # Default compiler can be overrided, for example:
-# $ GFC='gfortran-8' ./build.sh
+# $ FC='gfortran-8' ./build.sh
 # Default:
 : ${FC="gfortran"}
 
@@ -15,4 +15,6 @@ fi
 
 rm -f *.mod
 
-"${FC}" -Wall -Wextra -pedantic -std=f2008 -O2 src/taptempo.f90 app/main.f90 -o build/taptempo
+"${FC}" src/taptempo.f90 app/main.f90 -o build/taptempo
+
+rm -f *.mod

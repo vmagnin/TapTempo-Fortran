@@ -40,6 +40,8 @@ contains
         print '(A)', "  -s, --sample-size     change the number of samples needed to calculate the tempo,"
         print '(A)', "                        the default is 5 samples, the minimum is 2"
         print '(A)', "  -v, --version         print the version number"
+        print '(A)'
+        print '(A)', "Home page: <https://github.com/vmagnin/TapTempo-Fortran>"
     end subroutine
 
 

@@ -44,7 +44,7 @@ contains
 
 
     subroutine manage_command_line
-        integer :: i, nb
+        integer :: i, nb, status
         character(len=100) :: args
 
         nb = command_argument_count()
@@ -63,22 +63,26 @@ contains
                 case("-p", "--precision")
                     i = i + 1
                     call get_command_argument(i, value=args)
-                    read(args, *) p
+                    read(args, *, iostat=status) p
+                    if (status > 0) print '(A)', "Problem with -p: the default value will be used"
                     p = max(0, min(p, 5))   ! 0 <= p <= 5
                 case("-r", "--reset-time")
                     i = i + 1
                     call get_command_argument(i, value=args)
-                    read(args, *) r
+                    read(args, *, iostat=status) r
+                    if (status > 0) print '(A)', "Problem with -r: the default value will be used"
                 case("-s", "--sample-size")
                     i = i + 1
                     call get_command_argument(i, value=args)
-                    read(args, *) s
+                    read(args, *, iostat=status) s
+                    if (status > 0) print '(A)', "Problem with -s: the default value will be used"
                     s = max(2, s)
                 case("-v", "--version")
                     call print_version()
                     stop
             end select
         end do
+        print *, p,r,s
     end subroutine manage_command_line
 
 

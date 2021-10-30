@@ -89,10 +89,10 @@ contains
         integer :: i
         real(wp), dimension(s) :: t   ! Time FIFO stack
         integer :: oldest
-        character(len=25) :: fmt
+        character(len=27) :: fmt
 
         ! Format used for printing the tempo:
-        write(fmt, '(A, I1, A)') '("Tempo: ", f8.', p, ', " BPM")'
+        write(fmt, '(A, I1, A)') '("Tempo: ", f10.', p, ', " BPM")'
         ! Stack initialization:
         t = 0
 

@@ -5,12 +5,13 @@ module taptempo
     implicit none
 
     ! Tap Tempo Version:
-    character(len=*), parameter :: version = "0.9.0"
+    character(len=*), parameter :: version = "1.0.0"
 
     ! Default values of the command options:
-    integer :: s = 5    ! Stack size
-    integer :: p = 0    ! Precision
-    integer :: r = 5    ! Reset time in seconds
+    integer :: s = 5                ! Stack size
+    integer :: p = 0                ! Precision
+    integer :: r = 5                ! Reset time in seconds
+    logical :: out_flag = .false.   ! Flag for the ouput file
 
     private
 
@@ -33,6 +34,7 @@ contains
         print '(A)'
         print '(A)', "Options :"
         print '(A)', "  -h, --help            display this help message"
+        print '(A)', "  -o, --output          save the results in the taptempo.txt file"
         print '(A)', "  -p, --precision       change the number of decimal for the tempo,"
         print '(A)', "                        the default is 0 decimal places, the max is 5 decimals"
         print '(A)', "  -r, --reset-time      change the time in seconds to reset the calculation,"
@@ -62,6 +64,8 @@ contains
                     call print_version()
                     call print_options()
                     stop
+                case("-o", "--output")
+                    out_flag = .true.
                 case("-p", "--precision")
                     i = i + 1
                     call get_command_argument(i, value=args)
@@ -92,7 +96,10 @@ contains
         integer(int64) :: count       ! Count of the processor clock
         real(wp) :: rate              ! Number of clock ticks per second
         integer :: i
+        integer :: my_file            ! Unit of the output file
         real(wp), dimension(s) :: t   ! Time FIFO stack
+        real(wp) :: t0                ! Time reference
+        real(wp) :: bpm               ! Beats Per Minute
         integer :: oldest
         character(len=28) :: fmt
 
@@ -100,6 +107,11 @@ contains
         write(fmt, '(A, I1, A)') '("Tempo: ", f10.', p, ', " BPM ")'
         ! Stack initialization:
         t = 0
+
+        if (out_flag) then
+            open(newunit=my_file, file="taptempo.txt", status="replace")
+            write(my_file, '(A)') "#    t         bpm"
+        end if
 
         print '(A)', "Hit Enter key for each beat (q to quit)."
 
@@ -120,13 +132,16 @@ contains
 
             if (i == 1) then
                 print '(A)', "[Hit enter key one more time to start BPM computation...]"
+                t0 = t(1)
             else
                 ! Verify that the user is actively tapping:
                 if (t(1) - t(2) <= r) then
                     ! Oldest time in the stack:
                     oldest = min(i, s)
                     ! Computes and prints the beats per minute:
-                    write(*, fmt, advance="no") 60 / ((t(1) - t(oldest)) / (oldest - 1))
+                    bpm = 60 / ((t(1) - t(oldest)) / (oldest - 1))
+                    write(*, fmt, advance="no") bpm
+                    if (out_flag) write(my_file, '(F9.3, F12.5)') t(1)-t0, bpm
                 else
                     print '(A)', "Time reset"
                     i = 1
@@ -136,6 +151,8 @@ contains
         end do
 
         print '(A)', "I don't know why you say goodbye..."
+        if (out_flag) close(my_file)
+
     end subroutine measure_tempo
 
 end module taptempo

@@ -49,6 +49,7 @@ Usage : taptempo [options]
 
 Options :
   -h, --help            display this help message
+  -o, --output          save the results in the taptempo.txt file
   -p, --precision       change the number of decimal for the tempo,
                         the default is 0 decimal places, the max is 5 decimals
   -r, --reset-time      change the time in seconds to reset the calculation,

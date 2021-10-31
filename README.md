@@ -61,7 +61,8 @@ Options :
 
 ## Contributing
 
-* Post a message in the GitHub *Issues* tab to discuss the function you want to work on.
+* Post a message in the GitHub *Issues* tab to discuss the function you want to work on, or on the Fortran Discourse:
+https://fortran-lang.discourse.group/t/tap-tempo-a-toy-project/2180
 * Concerning coding conventions, follow the stdlib conventions:
 https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md
 * When ready, make a *Pull Request*.
@@ -69,6 +70,7 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md
 ## Technical information
 
 * https://en.wikipedia.org/wiki/Tempo
+* https://musicmachinery.com/2009/03/02/in-search-of-the-click-track/
 
 * Introduced by Fortran 90:
   * [SYSTEM_CLOCK()](https://gcc.gnu.org/onlinedocs/gfortran/SYSTEM_005fCLOCK.html)

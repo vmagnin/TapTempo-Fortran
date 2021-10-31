@@ -19,14 +19,10 @@ $ fpm run
  [Hit enter key one more time to start BPM computation...]
 
 Tempo:      85. BPM
-
 Tempo:      83. BPM
-
 Tempo:      84. BPM
-
 Tempo:      84. BPM
-
-Tempo:      81. BPM
+Tempo:      81. BPM q
 ```
 
 To add options, put them after `--`:

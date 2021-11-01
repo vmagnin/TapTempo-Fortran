@@ -100,7 +100,7 @@ contains
         integer :: i
         integer :: my_file            ! Unit of the output file
         real(wp), dimension(s) :: t   ! Time FIFO stack
-        real(wp) :: t0                ! Time reference
+        real(wp) :: t0                ! Time origin
         real(wp) :: bpm               ! Beats Per Minute
         integer :: oldest
         character(len=28) :: fmt

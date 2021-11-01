@@ -55,7 +55,7 @@ contains
         if (nb == 0) return
 
         i = 0
-        do while (i <= nb)
+        do while (i < nb)
             i = i + 1
             call get_command_argument(i, value=args)
 
@@ -86,6 +86,8 @@ contains
                 case("-v", "--version")
                     call print_version()
                     stop
+                case default
+                    print '(2A)', "Unknown option ignored: ", trim(args)
             end select
         end do
     end subroutine manage_command_line

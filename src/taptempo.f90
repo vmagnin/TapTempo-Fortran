@@ -30,12 +30,12 @@ contains
 
     subroutine print_options
         print '(A)'
-        print '(A)', "Usage : taptempo [options]"
+        print '(A)', "Usage: taptempo [options]"
         print '(A)'
         print '(A)', "Options :"
         print '(A)', "  -h, --help            display this help message"
         print '(A)', "  -o, --output          save the results in the taptempo.txt file"
-        print '(A)', "  -p, --precision       change the number of decimal for the tempo,"
+        print '(A)', "  -p, --precision       change the number of decimals for the tempo,"
         print '(A)', "                        the default is 0 decimal places, the max is 5 decimals"
         print '(A)', "  -r, --reset-time      change the time in seconds to reset the calculation,"
         print '(A)', "                        the default is 5 seconds"

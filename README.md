@@ -35,18 +35,18 @@ Or you can also use the `build.sh` script if you don't have fpm installed, or ju
 
 ```
 $ gfortran -o taptempo src/taptempo.f90 app/main.f90
-* ./taptempo
+$ ./taptempo
 ```
 
 ## Options
 
 ```
-Usage : taptempo [options]
+Usage: taptempo [options]
 
 Options :
   -h, --help            display this help message
   -o, --output          save the results in the taptempo.txt file
-  -p, --precision       change the number of decimal for the tempo,
+  -p, --precision       change the number of decimals for the tempo,
                         the default is 0 decimal places, the max is 5 decimals
   -r, --reset-time      change the time in seconds to reset the calculation,
                         the default is 5 seconds
@@ -57,7 +57,7 @@ Options :
 
 ## Contributing
 
-* Post a message in the GitHub *Issues* tab to discuss the function you want to work on, or on the Fortran Discourse:
+* Post a message in the GitHub *Issues* tab to discuss the feature you want to work on, or on the Fortran Discourse:
 https://fortran-lang.discourse.group/t/tap-tempo-a-toy-project/2180
 * Concerning coding conventions, follow the stdlib conventions:
 https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md
@@ -74,8 +74,8 @@ https://github.com/fortran-lang/stdlib/blob/master/STYLE_GUIDE.md
     * A 64 bits integer can go up to 2**63-1 = +9223372036854775807. Even if the clock resolution is nanosecond, we could count 9223372036 seconds ~ 106751 days ~ 292 years.
 
 * Introduced by Fortran 2003:
-  * [COMMAND_ARGUMENT_COUNT()](https://gcc.gnu.org/onlinedocs/gfortran/COMMAND_005fARGUMENT_005fCOUNT.html)
-  * [GET_COMMAND_ARGUMENT()](https://gcc.gnu.org/onlinedocs/gfortran/GET_005fCOMMAND_005fARGUMENT.html)
+  * [COMMAND\_ARGUMENT\_COUNT()](https://gcc.gnu.org/onlinedocs/gfortran/COMMAND_005fARGUMENT_005fCOUNT.html)
+  * [GET\_COMMAND\_ARGUMENT()](https://gcc.gnu.org/onlinedocs/gfortran/GET_005fCOMMAND_005fARGUMENT.html)
 
 * Introduced by Fortran 2008:
-  * [ISO_FORTRAN_ENV real64 and int64](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html)
+  * [ISO\_FORTRAN\_ENV real64 and int64](https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html)

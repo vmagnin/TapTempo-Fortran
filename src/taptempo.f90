@@ -1,3 +1,8 @@
+! A command line taptempo written in modern Fortran style
+! License GPL-3.0-or-later
+! Vincent Magnin
+! Last modifications: 2021-11-01
+
 module taptempo
     ! Reals working precision and 64 bits integers:
     use, intrinsic :: iso_fortran_env, only: wp=>real64, int64

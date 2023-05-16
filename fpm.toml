@@ -1,6 +1,6 @@
 name = "taptempo"
 version = "1.0.0"
-license = "license"
+license = "GPL-3.0-or-later"
 author = "Vincent Magnin and the Fortran-lang community"
 maintainer = "Vincent Magnin"
 copyright = "Copyright 2021"
